@@ -10,4 +10,4 @@ Cédric Crettaz, IoT Lab, ccrettaz@iotlab.com
 Not yet defined.
 
 ## Project status
-The installation is running in a development environment in the IoT Lab research infrastructure.
+The installation is running in a development environment in the IoT Lab research infrastructure. This project is addressing the following bug related to the FROST server launched through Docker containers: [https://github.com/FraunhoferIOSB/FROST-Server/issues/308](https://github.com/FraunhoferIOSB/FROST-Server/issues/308)
