@@ -19,8 +19,6 @@ services:
       - persistence_db_username=sensorthings
       - persistence_db_password=ChangeMe
       - persistence_autoUpdateDatabase=true
-      - persistence_persistenceManagerImplementationClass=de.fraunhofer.iosb.ilt.sta.persistence.pgjooq.imp.PostgresPersistenceManager
-      #- persistence_idGenerationMode=ServerAndClientGenerated
     ports:
       - 8090:8080
       - 1883:1883
@@ -34,7 +32,6 @@ services:
       - POSTGRES_DB=sensorthings
       - POSTGRES_USER=sensorthings
       - POSTGRES_PASSWORD=ChangeMe
-      - POSTGRES_MULTIPLE_EXTENSIONS=postgis,hstore,postgis_topology,postgis_raster,pgrouting,uuid-ossp
     volumes:
       - postgis_volume:/var/lib/postgresql/data
 volumes:
