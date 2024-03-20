@@ -11,6 +11,16 @@ The commands to be executed are in the right order:
 1. Stop the database of the FROST server: `sudo docker stop ad4gd_database_1`
 1. Restart the FROST server: `sudo docker-compose up -d`
 
+## Uninstallation
+
+To completely uninstall the FROST server, the following commands should be applied:
+1. Stop the Docker container of the FROST server: `sudo docker stop ad4gd_web_1`
+1. Stop the Docker container of the database used by the FROST server: `sudo docker stop ad4gd_database_1`
+1. Remove the Docker container of the database: `sudo docker remove ad4gd_database_1`
+1. Remove the Docker container of the FROST server: `sudo docker remove ad4gd_web_1`
+1. Erase all in relation to Docker containers, like the images and the networks: `sudo docker system prune -a`
+1. To be sure, erase the volume associated to the database: `sudo docker volume rm ad4gd_postgis_volume`
+
 ## Support and author
 Cédric Crettaz, IoT Lab, ccrettaz@iotlab.com
 
