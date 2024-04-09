@@ -8,7 +8,7 @@ The commands to be executed are in the right order:
 1. Go to the command line of the Docker container used for the database: `sudo docker exec -it ad4gd_database_1 bash`
 1. Connect to the database command line: `psql -p 5432 -U sensorthings`
 1. Add the required extension for the database: `CREATE EXTENSION "uuid-ossp";`
-1. Go back to the initial command line by writing three times `exit`
+1. Go back to the initial command line by writing two times `exit`
 1. Add the STA PLUS plugin: `sudo docker cp FROST-Server.Plugin.STAplus-2.2.0-SNAPSHOT.jar ad4gd_web_1:/usr/local/tomcat/webapps/FROST-Server/WEB-INF/lib`
 1. Add the the plugin for the authentication: `sudo docker cp FROST-Server.Auth.OAuth2-2.2.0-SNAPSHOT.jar ad4gd_web_1:/usr/local/tomcat/webapps/FROST-Server/WEB-INF/lib`
 1. Stop the FROST server: `sudo docker stop ad4gd_web_1`
