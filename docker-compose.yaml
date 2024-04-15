@@ -19,6 +19,24 @@ services:
       - persistence_db_username=sensorthings
       - persistence_db_password=ChangeMe
       - persistence_autoUpdateDatabase=true
+      - auth_provider=de.securedimensions.frostserver.auth.oauth2.OAuth2AuthProvider
+      - auth_realmName=FROST-Server-STAplus
+      - auth_allowAnonymousRead=false
+      - auth_authenticateOnly=false
+      - auth_role_read=read
+      - auth_role_create=create
+      - auth_role_update=update
+      - auth_role_delete=delete
+      - auth_role_admin=admin
+      - auth_adminUid=f96e80d5-56bf-396f-a713-3f27f020bbe0
+      - auth_oauth_introspectionUrl=https://www.authenix.eu/oauth/tokeninfo
+      - auth_oauth_userinfoUrl=https://www.authenix.eu/openid/userinfo
+      - auth_oauth_scope=openid
+      - auth_oauth_clientId=6e9711d2-9bfa-4299-8676-dde7d2bbcd04
+      - auth_oauth_clientSecret=bde4c72f6aa2ef12e51d400d368d083ebf8f1fc12296cd5b8983960938fdac9d
+      - auth_registerUserLocally=false
+      - auth_userTable=USERS
+      - auth_usernameColumn=USER_NAME
     ports:
       - 8090:8080
       - 1883:1883
