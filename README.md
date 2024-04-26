@@ -14,6 +14,7 @@ The commands to be executed are in the right order:
 1. Stop the FROST server: `sudo docker stop ad4gd_web_1`
 1. Stop the database of the FROST server: `sudo docker stop ad4gd_database_1`
 1. Restart the FROST server: `sudo docker-compose up -d`
+1. Verify the launch of the Docker containers: `sudo docker ps`
 
 ## Uninstallation
 
