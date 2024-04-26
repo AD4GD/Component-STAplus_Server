@@ -32,8 +32,8 @@ services:
       - auth_oauth_introspectionUrl=https://www.authenix.eu/oauth/tokeninfo
       - auth_oauth_userinfoUrl=https://www.authenix.eu/openid/userinfo
       - auth_oauth_scope=idp
-      - auth_oauth_clientId=6e9711d2-9bfa-4299-8676-dde7d2bbcd04
-      - auth_oauth_clientSecret=bde4c72f6aa2ef12e51d400d368d083ebf8f1fc12296cd5b8983960938fdac9d
+      - auth_oauth_clientId=53e6c7ee-09c0-4de4-87e9-bff9bd7c7c07
+      - auth_oauth_clientSecret=01940b6a70403ced2e67eca018755988c112274588e841dd2632e8b5ce5ee9b2
       - auth_registerUserLocally=false
       - auth_userTable=USERS
       - auth_usernameColumn=USER_NAME
