@@ -28,12 +28,12 @@ services:
       - auth_role_update=update
       - auth_role_delete=delete
       - auth_role_admin=admin
-      - auth_adminUid=f96e80d5-56bf-396f-a713-3f27f020bbe0
+      - auth_adminUid=d28ff3f2-efc6-397d-adf1-3fcbddc8002d
       - auth_oauth_introspectionUrl=https://www.authenix.eu/oauth/tokeninfo
       - auth_oauth_userinfoUrl=https://www.authenix.eu/openid/userinfo
       - auth_oauth_scope=idp
-      - auth_oauth_clientId=53e6c7ee-09c0-4de4-87e9-bff9bd7c7c07
-      - auth_oauth_clientSecret=01940b6a70403ced2e67eca018755988c112274588e841dd2632e8b5ce5ee9b2
+      - auth_oauth_clientId=acf3265f-ad75-44df-a599-ce7ff54c9d97
+      - auth_oauth_clientSecret=f2f91e62a813bdf76b11612e2ced0772b6a6cb1caf4433015514543f640aed64
       - auth_registerUserLocally=false
       - auth_userTable=USERS
       - auth_usernameColumn=USER_NAME
