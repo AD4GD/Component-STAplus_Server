@@ -22,7 +22,7 @@ services:
       - auth_provider=de.securedimensions.frostserver.auth.oauth2.OAuth2AuthProvider
       - auth_realmName=FROST-Server-STAplus
       - auth_allowAnonymousRead=false
-      - auth_authenticateOnly=false
+      - auth_authenticateOnly=true
       - auth_role_read=read
       - auth_role_create=create
       - auth_role_update=update
