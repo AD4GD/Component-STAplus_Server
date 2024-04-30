@@ -5,7 +5,8 @@ services:
     restart: always
     image: fraunhoferiosb/frost-server:2.2
     environment:
-      - serviceRootUrl=http://frost2.iotlab.com:8090/FROST-Server
+      #- serviceRootUrl=http://frost2.iotlab.com:8090/FROST-Server
+      - serviceRootUrl=https://frost.iotlab.com/sensorthings2
       - plugins_multiDatastream_enable=true
       - plugins_plugins=de.securedimensions.frostserver.plugin.staplus.PluginPLUS
       - plugins_staplus_enable=true
