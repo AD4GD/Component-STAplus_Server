@@ -20,6 +20,8 @@ services:
       - persistence_db_username=sensorthings
       - persistence_db_password=ChangeMe
       - persistence_autoUpdateDatabase=true
+      - persistence_idGenerationMode=ServerGeneratedOnly
+      - persistence_idGenerationMode_Party=ClientGeneratedOnly
       - auth_provider=de.securedimensions.frostserver.auth.oauth2.OAuth2AuthProvider
       - auth_realmName=FROST-Server-STAplus
       - auth_allowAnonymousRead=false
