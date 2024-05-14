@@ -26,6 +26,23 @@ To completely uninstall the FROST server, the following commands should be appli
 1. Erase all in relation to Docker containers, like the images and the networks: `sudo docker system prune -a`
 1. To be sure, erase the volume associated to the database: `sudo docker volume rm ad4gd_postgis_volume`
 
+## Authentication  
+
+This instance of the FROST/STA+ server is supporting the user's authentication. This section explains the requests used in the authentication process.  
+First of all, an access token is requested to the Authenix server as follows:
+- HTTP POST method
+- URL: `https://www.authenix.eu/oauth/token`
+- Header: `Accept: application/json`
+- Header: `Content-Type: application/x-www-form-urlencoded`
+- Header: `Authorization: Basic YWNmMzI2NWYtYWQ3NS00NGRmLWE1OTktY2U3ZmY1NGM5ZDk3OmYyZjkxZTYyYTgxM2JkZjc2YjExNjEyZTJjZWQwNzcyYjZhNmNiMWNhZjQ0MzMwMTU1MTQ1NDNmNjQwYWVkNjQ=`
+- Body: `grant_type=client_credentials&scope=idp`
+The Authenix server returns in the response a token. This access token should be used for all the transactions to the FROST/STA+ server. Here a typical request to get data from the FROST/STA+ server:
+- HTTP GET method
+- URL: `https://frost.iotlab.com/sensorthingsapi2/`
+- Header: `Accept: */*`
+- Header: `Content-Type: application/json`
+- Header: `Authorization: Bearer XXX` => Replace `XXX` by the access token provided by Authenix.
+
 ## Support and author
 Cédric Crettaz, IoT Lab, ccrettaz@iotlab.com
 
