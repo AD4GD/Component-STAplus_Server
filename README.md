@@ -50,9 +50,13 @@ First of all, select POST and complete the URL and the headers:
 
 ![](auth_example/1.jpg) 
 
-Then, complete the body of the request:  
+Then, complete the body of the request and finally, click on the SEND button:  
 
 ![](auth_example/2.jpg)  
+
+The response contains the access token:  
+
+![](auth_example/3.jpg)
 
 
 ## Support and author
