@@ -44,6 +44,11 @@ The Authenix server returns in the response a token. This access token should be
 - Header: `Content-Type: application/json`
 - Header: `Authorization: Bearer XXX` => Replace `XXX` by the access token provided by Authenix.
 
+A concrete example using Postman is shown below:  
+1. Get the access token from Authenix:
+First of all, complete the URL and the headers:  
+
+
 ## Support and author
 Cédric Crettaz, IoT Lab, ccrettaz@iotlab.com
 
