@@ -58,6 +58,14 @@ The response contains the access token:
 
 ![](auth_example/3.jpg)
 
+1. Get the data from the FROST/STA+ server:
+First of all, select GET and complete the URL and the headers. The string after the word "Bearer" corresponds to the access token received from Authenix above. Then, click on the SEND button.
+
+![](auth_example/4.jpg)
+
+The FROST/STA+ server delivers to you the requested data:
+
+![](auth_example/5.jpg)
 
 ## Support and author
 Cédric Crettaz, IoT Lab, ccrettaz@iotlab.com
