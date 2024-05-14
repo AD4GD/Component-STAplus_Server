@@ -47,9 +47,12 @@ The Authenix server returns in the response a token. This access token should be
 A concrete example using Postman is shown below:  
 1. Get the access token from Authenix:  
 First of all, select POST and complete the URL and the headers:  
-[](https://gitlab.distantaccess.com/ad4gd/docker-frost-server/-/blob/main/auth_example/1.jpg)  
+
+![](auth_example/1.jpg) 
+
 Then, complete the body of the request:  
-[](https://gitlab.distantaccess.com/ad4gd/docker-frost-server/-/blob/main/auth_example/2.jpg)  
+
+![](auth_example/2.jpg)  
 
 
 ## Support and author
