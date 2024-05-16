@@ -39,7 +39,7 @@ First of all, an access token is requested to the Authenix server as follows:
 
 The Authenix server returns in the response a token. This access token should be used for all the transactions to the FROST/STA+ server. Here a typical request to get data from the FROST/STA+ server:
 - HTTP GET method
-- URL: `https://frost.iotlab.com/sensorthingsapi2/`
+- URL: `https://frost.iotlab.com/sensorthings2/v1.1/`
 - Header: `Accept: */*`
 - Header: `Content-Type: application/json`
 - Header: `Authorization: Bearer XXX` => Replace `XXX` by the access token provided by Authenix.
