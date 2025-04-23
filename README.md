@@ -26,6 +26,17 @@ To completely uninstall the FROST server, the following commands should be appli
 1. Erase all in relation to Docker containers, like the images and the networks: `sudo docker system prune -a`
 1. To be sure, erase the volume associated to the database: `sudo docker volume rm ad4gd_postgis_volume`
 
+## Upload a dump of the FROST database
+
+To import a dump of the FROST database, the following commands should be applied:
+1. Copy the database dump inside the Docker container: `sudo docker cp pgdump-20250327-000901.sql.bz2 docker-frost-server_database_1:/`
+1. Go inside the Docker container: `sudo docker exec -it docker-frost-server_database_1 bash`
+1. Uncompress the dump: `bzip2 -dk pgdump-20250327-000901.sql.bz2`
+1. Erase the old database: `dropdb -U sensorthings -f sensorthings`
+1. Create again the database: `createdb -U sensorthings sensorthings`
+1. Restore the dump: `pg_restore -U sensorthings -Fc -d sensorthings < pgdump-20250327-000901.sql`
+1. Leave: `exit`
+
 ## Authentication  
 
 This instance of the FROST/STA+ server is supporting the user's authentication. This section explains the requests used in the authentication process.  
