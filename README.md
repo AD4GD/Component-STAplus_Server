@@ -5,37 +5,22 @@ This project is installing the regular FROST server through a Docker container. 
 
 The commands to be executed are in the right order:
 1. Start a fresh installation of the FROST server: `sudo docker-compose up -d`
-1. Go to the command line of the Docker container used for the database: `sudo docker exec -it ad4gd_database_1 bash`
-1. Connect to the database command line: `psql -p 5432 -U sensorthings`
-1. Add the required extension for the database: `CREATE EXTENSION "uuid-ossp";`
-1. Go back to the initial command line by writing two times `exit`
-1. Add the STA PLUS plugin: `sudo docker cp FROST-Server.Plugin.STAplus-2.2.0-SNAPSHOT.jar ad4gd_web_1:/usr/local/tomcat/webapps/FROST-Server/WEB-INF/lib`
-1. Add the the plugin for the authentication: `sudo docker cp FROST-Server.Auth.OAuth2-2.2.0-SNAPSHOT.jar ad4gd_web_1:/usr/local/tomcat/webapps/FROST-Server/WEB-INF/lib`
-1. Stop the FROST server: `sudo docker stop ad4gd_web_1`
-1. Stop the database of the FROST server: `sudo docker stop ad4gd_database_1`
+1. Add the STA PLUS plugin: `sudo docker cp FROST-Server-2.5.0-SNAPSHOT.Plugin.STAplus-1.0.1.jar docker-frost-server_web_1:/usr/local/tomcat/webapps/FROST-Server/WEB-INF/lib`
+1. Add the the plugin for the authentication: `sudo docker cp FROST-Server-2.5.0-SNAPSHOT.Plugin.OAuth2-1.0.jar docker-frost-server_web_1:/usr/local/tomcat/webapps/FROST-Server/WEB-INF/lib`
+1. Stop the FROST server: `sudo docker stop docker-frost-server_web_1`
+1. Stop the database of the FROST server: `sudo docker stop docker-frost-server_database_1`
 1. Restart the FROST server: `sudo docker-compose up -d`
 1. Verify the launch of the Docker containers: `sudo docker ps`
 
 ## Uninstallation
 
 To completely uninstall the FROST server, the following commands should be applied:
-1. Stop the Docker container of the FROST server: `sudo docker stop ad4gd_web_1`
-1. Stop the Docker container of the database used by the FROST server: `sudo docker stop ad4gd_database_1`
-1. Remove the Docker container of the database: `sudo docker remove ad4gd_database_1`
-1. Remove the Docker container of the FROST server: `sudo docker remove ad4gd_web_1`
+1. Stop the Docker container of the FROST server: `sudo docker stop docker-frost-server_web_1`
+1. Stop the Docker container of the database used by the FROST server: `sudo docker stop docker-frost-server_database_1`
+1. Remove the Docker container of the database: `sudo docker remove docker-frost-server_database_1`
+1. Remove the Docker container of the FROST server: `sudo docker remove docker-frost-server_web_1`
 1. Erase all in relation to Docker containers, like the images and the networks: `sudo docker system prune -a`
-1. To be sure, erase the volume associated to the database: `sudo docker volume rm ad4gd_postgis_volume`
-
-## Upload a dump of the FROST database
-
-To import a dump of the FROST database, the following commands should be applied:
-1. Copy the database dump inside the Docker container: `sudo docker cp pgdump-20250327-000901.sql.bz2 docker-frost-server_database_1:/`
-1. Go inside the Docker container: `sudo docker exec -it docker-frost-server_database_1 bash`
-1. Uncompress the dump: `bzip2 -dk pgdump-20250327-000901.sql.bz2`
-1. Erase the old database: `dropdb -U sensorthings -f sensorthings`
-1. Create again the database: `createdb -U sensorthings sensorthings`
-1. Restore the dump: `pg_restore -U sensorthings -Fc -d sensorthings < pgdump-20250327-000901.sql`
-1. Leave: `exit`
+1. To be sure, erase the volume associated to the database: `sudo docker volume rm docker-frost-server_postgis_volume`
 
 ## Authentication  
 
@@ -50,7 +35,7 @@ First of all, an access token is requested to the Authenix server as follows:
 
 The Authenix server returns in the response a token. This access token should be used for all the transactions to the FROST/STA+ server. Here a typical request to get data from the FROST/STA+ server:
 - HTTP GET method
-- URL: `https://frost.iotlab.com/sensorthings2/v1.1/`
+- URL: `https://frost.iotlab.com/sensorthings3/v1.1/`
 - Header: `Accept: */*`
 - Header: `Content-Type: application/json`
 - Header: `Authorization: Bearer XXX` => Replace `XXX` by the access token provided by Authenix.
@@ -86,4 +71,4 @@ Cédric Crettaz, IoT Lab, ccrettaz@iotlab.com
 Not yet defined.
 
 ## Project status
-The installation is running in a development environment in the IoT Lab research infrastructure. This project is addressing the following bug related to the FROST server launched through Docker containers: [https://github.com/FraunhoferIOSB/FROST-Server/issues/308](https://github.com/FraunhoferIOSB/FROST-Server/issues/308)
+The installation is running in a development environment in the IoT Lab research infrastructure.

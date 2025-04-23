@@ -3,10 +3,9 @@ version: '3'
 services:
   web:
     restart: always
-    image: fraunhoferiosb/frost-server:2.2
+    image: fraunhoferiosb/frost-server:2.5
     environment:
-      #- serviceRootUrl=http://frost2.iotlab.com:8090/FROST-Server
-      - serviceRootUrl=https://frost.iotlab.com/sensorthings2
+      - serviceRootUrl=https://frost.iotlab.com/sensorthings3
       - plugins_multiDatastream_enable=true
       - plugins_plugins=de.securedimensions.frostserver.plugin.staplus.PluginPLUS
       - plugins_staplus_enable=true
@@ -31,12 +30,12 @@ services:
       - auth_role_update=update
       - auth_role_delete=delete
       - auth_role_admin=admin
-      - auth_adminUid=XXX
+      - auth_adminUid=d28ff3f2-efc6-397d-adf1-3fcbddc8002d
       - auth_oauth_introspectionUrl=https://www.authenix.eu/oauth/tokeninfo
       - auth_oauth_userinfoUrl=https://www.authenix.eu/openid/userinfo
       - auth_oauth_scope=idp
-      - auth_oauth_clientId=XXX
-      - auth_oauth_clientSecret=XXX
+      - auth_oauth_clientId=acf3265f-ad75-44df-a599-ce7ff54c9d97
+      - auth_oauth_clientSecret=f2f91e62a813bdf76b11612e2ced0772b6a6cb1caf4433015514543f640aed64
       - auth_registerUserLocally=false
       - auth_userTable=USERS
       - auth_usernameColumn=USER_NAME
