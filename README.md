@@ -1,5 +1,7 @@
 # Docker FROST Server
 
+All the detailed information concerning the use of the FROST server in the AD4GD project is available in the deliverable D3.1 "Heterogeneous IoT Data Integration Model" published on Zenodo: [https://zenodo.org/records/13757222](https://zenodo.org/records/13757222)
+
 ## Installation
 This project is installing the regular FROST server through a Docker container. This installation includes the FROST server with HTTP and MQTT communication protocols. It also mentions the commands to add the requested plugins to the FROST server.  
 
@@ -22,47 +24,9 @@ To completely uninstall the FROST server, the following commands should be appli
 1. Erase all in relation to Docker containers, like the images and the networks: `sudo docker system prune -a`
 1. To be sure, erase the volume associated to the database: `sudo docker volume rm docker-frost-server_postgis_volume`
 
-## Authentication  
+## Issues  
 
-This instance of the FROST/STA+ server is supporting the user's authentication. This section explains the requests used in the authentication process.  
-First of all, an access token is requested to the Authenix server as follows:
-- HTTP POST method
-- URL: `https://www.authenix.eu/oauth/token`
-- Header: `Accept: application/json`
-- Header: `Content-Type: application/x-www-form-urlencoded`
-- Header: `Authorization: Basic YWNmMzI2NWYtYWQ3NS00NGRmLWE1OTktY2U3ZmY1NGM5ZDk3OmYyZjkxZTYyYTgxM2JkZjc2YjExNjEyZTJjZWQwNzcyYjZhNmNiMWNhZjQ0MzMwMTU1MTQ1NDNmNjQwYWVkNjQ=`
-- Body: `grant_type=client_credentials&scope=idp`  
-
-The Authenix server returns in the response a token. This access token should be used for all the transactions to the FROST/STA+ server. Here a typical request to get data from the FROST/STA+ server:
-- HTTP GET method
-- URL: `https://frost.iotlab.com/sensorthings3/v1.1/`
-- Header: `Accept: */*`
-- Header: `Content-Type: application/json`
-- Header: `Authorization: Bearer XXX` => Replace `XXX` by the access token provided by Authenix.
-
-A concrete example using Postman is shown below:  
-1. Get the access token from Authenix:  
-First of all, select POST and complete the URL and the headers:  
-
-![](auth_example/1.jpg) 
-
-Then, complete the body of the request and finally, click on the SEND button:  
-
-![](auth_example/2.jpg)  
-
-The response contains the access token:  
-
-![](auth_example/3.jpg)
-
-2. Get the data from the FROST/STA+ server:  
-First of all, select GET and complete the URL and the headers. The string after the word "Bearer" corresponds to the access token received from Authenix above. Then, click on the SEND button.
-
-![](auth_example/6.jpg)
-![](auth_example/4.jpg)
-
-The FROST/STA+ server delivers to you the requested data:
-
-![](auth_example/5.jpg)
+Some issues when updating the metadata were encountered during the AD4GD project. All the data needs to be re-uploaded if one field is changed. More details can be found at [https://github.com/FraunhoferIOSB/FROST-Server/issues/2132](https://github.com/FraunhoferIOSB/FROST-Server/issues/2132). These issues have been fixed with the version 2.5.0.
 
 ## Support and author
 Cédric Crettaz, IoT Lab, ccrettaz@iotlab.com
